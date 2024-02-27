@@ -11,6 +11,9 @@
 }
 
 body {
+  margin: auto;
+  max-width: 1580px;
+  width: 100%;
   background: #0e0e0e;
   background-image: url("/bg.svg");
   background-repeat: no-repeat;
@@ -20,7 +23,7 @@ body {
 }
 
 .section-data {
-  @apply flex w-full flex-col items-center justify-around;
+  @apply flex w-full max-w-full flex-col items-center justify-around;
 }
 
 .hero::before {
@@ -45,7 +48,7 @@ body {
 }
 
 .chef-image-miniature {
-  @apply aspect-square w-[83px] rounded object-cover shadow-md;
+  @apply aspect-square w-9 rounded object-cover shadow-md md:w-[83px];
 }
 
 .restaurant::before {

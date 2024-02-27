@@ -19,7 +19,7 @@ export const RaitingStars = component$(({ raiting }: { raiting: number }) => {
           <svg
             key={index}
             xmlns="http://www.w3.org/2000/svg"
-            class="fill-primary-color text-primary-color"
+            class="w-3 fill-primary-color text-primary-color md:w-6"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -39,7 +39,7 @@ export const RaitingStars = component$(({ raiting }: { raiting: number }) => {
           <svg
             key={index}
             xmlns="http://www.w3.org/2000/svg"
-            class="text-primary-color"
+            class="w-3 text-primary-color md:w-6"
             width="24"
             height="24"
             viewBox="0 0 24 24"

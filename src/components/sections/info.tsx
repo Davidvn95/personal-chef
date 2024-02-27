@@ -12,8 +12,8 @@ import { ChefCard } from "../shareds/chef-card";
 export const Info = component$(() => {
   return (
     <section id="info" class="section-data gap-10 py-10">
-      <article class="flex w-full gap-3">
-        <div class="flex w-2/3 flex-col items-center justify-center gap-4 bg-secundary-color p-10">
+      <article class="flex w-full flex-col gap-3 md:flex-row">
+        <div class="flex w-full flex-col items-center justify-center gap-4 bg-secundary-color p-10 md:w-2/3">
           <div class="flex gap-3">
             <button class="btn btn-primary">Chef</button>
             <button class="btn btn-primary">Usuario</button>
@@ -24,13 +24,13 @@ export const Info = component$(() => {
         </div>
 
         <div class="flex w-full justify-center bg-secundary-color p-8">
-          <ImgDibujosChef class="" />
+          <ImgDibujosChef class="aspect-video w-full" />
         </div>
       </article>
 
       <article class="flex flex-col items-center justify-center gap-5">
         <h2 class="text-2xl font-bold">Chefs</h2>
-        <div class="flex w-[600px] snap-x snap-mandatory gap-10 overflow-x-scroll scroll-auto">
+        <div class="flex max-w-[600px] snap-x snap-mandatory gap-10 overflow-x-scroll scroll-auto px-4">
           <ChefCard nameChef="David">
             <Chef1 class="chef-image" />
           </ChefCard>
