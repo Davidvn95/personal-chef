@@ -5,6 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         "hero-section": "url('/src/assets/hero-chef.png')",
+        "restaurant-section": "url('/src/assets/restaurants-bg.png')",
       },
       colors: {
         "primary-color": "#dfa040",

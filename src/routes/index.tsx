@@ -4,6 +4,7 @@ import { Navbar } from "~/components/ui/navbar";
 import { Hero } from "~/components/sections/hero";
 import { Info } from "~/components/sections/info";
 import { TopRatings } from "~/components/sections/top-ratings";
+import { Restaurants } from "~/components/sections/restaurants";
 
 export default component$(() => {
   return (
@@ -12,6 +13,7 @@ export default component$(() => {
       <Hero />
       <Info />
       <TopRatings />
+      <Restaurants />
     </>
   );
 });

@@ -20,7 +20,7 @@ body {
 }
 
 .section-data {
-  @apply flex min-h-screen w-full flex-col justify-around;
+  @apply flex w-full flex-col justify-around;
 }
 
 .hero::before {
@@ -46,4 +46,9 @@ body {
 
 .chef-image-miniature {
   @apply aspect-square w-[83px] rounded object-cover shadow-md;
+}
+
+.restaurant::before {
+  @apply bg-restaurant-section absolute left-0 top-0 -z-10 h-full max-h-screen w-full bg-cover bg-center brightness-[.2] backdrop-blur-xl;
+  content: "";
 }
