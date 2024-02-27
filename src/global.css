@@ -1,0 +1,49 @@
+/**
+ * Tailwind CSS imports
+ * View the full documentation at https://tailwindcss.com
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #dfa040;
+}
+
+body {
+  background: #0e0e0e;
+  background-image: url("/bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--primary-color);
+  font-family: "Open Sans Variable", sans-serif;
+}
+
+.section-data {
+  @apply flex min-h-screen w-full flex-col justify-around;
+}
+
+.hero::before {
+  @apply absolute left-0 top-0 h-screen w-full bg-hero-section bg-cover bg-center brightness-[.5];
+  content: "";
+}
+
+.btn {
+  @apply cursor-pointer rounded px-4 py-1 font-bold;
+}
+
+.btn-primary {
+  @apply bg-[var(--primary-color)] text-black hover:bg-[#ffc368];
+}
+
+.social-icon {
+  @apply rounded-full bg-primary-color p-3;
+}
+
+.chef-image {
+  @apply aspect-[9/13] w-[164px] object-cover;
+}
+
+.chef-image-miniature {
+  @apply aspect-square w-[83px] rounded object-cover shadow-md;
+}
