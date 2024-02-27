@@ -1,35 +1,47 @@
 import { component$, Slot } from "@builder.io/qwik";
+import IconChef from "~/assets/icon-chef.svg?jsx";
 
 interface Props {
   nameChef?: string;
+  position?: number;
 }
 
-export const ChefCard = component$(({ nameChef }: Props) => {
+export const ChefCard = component$(({ nameChef, position }: Props) => {
   return (
-    <div class="group relative flex min-w-fit max-w-fit flex-col items-center overflow-hidden rounded-md font-bold text-slate-400">
-      {/* <svg
-        class="absolute fill-primary-color"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 3c1.918 0 3.52 1.35 3.91 3.151a4 4 0 0 1 2.09 7.723l0 7.126h-12v-7.126a4 4 0 1 1 2.092 -7.723a4 4 0 0 1 3.908 -3.151z" />
-        <path d="M6.161 17.009l11.839 -.009" />
-      </svg> */}
-
-      <Slot />
-      {nameChef && (
-        <span class="invisible absolute bottom-0 left-0 right-0 top-0 z-10 grid place-items-center bg-black bg-opacity-50 backdrop-blur-[2px] group-hover:visible">
-          {nameChef}
-        </span>
+    <div
+      class={[
+        "relative flex min-w-fit max-w-fit flex-col items-center",
+        { "mt-20": position },
+      ]}
+    >
+      {position && (
+        <div class="absolute -top-20 z-10">
+          <div class="relative grid place-items-center text-black">
+            <IconChef
+              class={[
+                "aspect-square",
+                { "w-[108px]": position > 1, "w-[128px]": position === 1 },
+              ]}
+            />
+            <span
+              class={[
+                "absolute z-10 font-bold",
+                { "text-6xl": position === 1, "text-[40px]": position > 1 },
+              ]}
+            >
+              {position}
+            </span>
+          </div>
+        </div>
       )}
+      <div class="group relative flex min-w-fit max-w-fit flex-col items-center overflow-hidden rounded-md font-bold text-slate-400">
+        <Slot />
+        {nameChef && (
+          <span class="invisible absolute bottom-0 left-0 right-0 top-0 z-10 grid place-items-center bg-black bg-opacity-50 backdrop-blur-[2px] group-hover:visible">
+            {nameChef}
+          </span>
+        )}
+      </div>
     </div>
   );
 });

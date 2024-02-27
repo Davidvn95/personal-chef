@@ -36,16 +36,16 @@ export const TopRatings = component$(() => {
           <Chef3 q:slot="chef-image" class="chef-image-miniature" />
         </FoodCard>
       </article>
-      <article class="flex flex-col items-center gap-4">
+      <article class="flex flex-col items-center gap-5">
         <h2 class="text-2xl font-bold">Top 3 Chefs estelares</h2>
         <div class="flex items-center justify-center gap-11">
-          <ChefCard>
+          <ChefCard position={2}>
             <Chef1 class="aspect-[9/13] w-[288px] object-cover" />
           </ChefCard>
-          <ChefCard>
+          <ChefCard position={1}>
             <Chef3 class="aspect-[9/13] w-[288px] object-cover" />
           </ChefCard>
-          <ChefCard>
+          <ChefCard position={3}>
             <Chef2 class="aspect-[9/13] w-[288px] object-cover" />
           </ChefCard>
         </div>
