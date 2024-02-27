@@ -26,10 +26,10 @@ body {
   @apply flex w-full max-w-full flex-col items-center justify-around;
 }
 
-.hero::before {
+/* .hero::before {
   @apply absolute left-0 top-0 h-screen w-full bg-hero-section bg-cover bg-center brightness-[.5];
   content: "";
-}
+} */
 
 .btn {
   @apply cursor-pointer rounded px-4 py-1 font-bold;

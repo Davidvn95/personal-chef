@@ -1,12 +1,78 @@
-import { component$ } from "@builder.io/qwik";
+import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
+import Image1 from "~/assets/sliders-hero/image1.jpg?jsx";
+import Image2 from "~/assets/sliders-hero/image2.avif?jsx";
+import Image3 from "~/assets/sliders-hero/image3.png?jsx";
 
 export const Hero = component$(() => {
+  const maxSliders = 300;
+  const currentSlider = useSignal(0);
+
+  const handleClick = $((newValue?: number) => {
+    if (newValue) {
+      currentSlider.value = newValue;
+      return;
+    }
+    if (currentSlider.value < maxSliders) currentSlider.value += 100;
+    if (currentSlider.value === maxSliders) currentSlider.value = 0;
+  });
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ cleanup }) => {
+    const interval = setInterval(() => {
+      handleClick();
+      console.log("hecho");
+    }, 5000);
+    cleanup(() => clearInterval(interval));
+  });
+
   return (
     <section
       id="hero"
       class="hero section-data relative flex min-h-screen flex-col items-center"
     >
+      <article>
+        <div class="absolute left-0 top-0 flex h-screen w-full snap-x snap-mandatory overflow-hidden brightness-50">
+          <div
+            class={`flex -translate-x-[${currentSlider.value}%] transition-all duration-700`}
+          >
+            <Image1 class={["aspect-video min-w-full object-cover"]} />
+            <Image2 class={["aspect-video min-w-full object-cover"]} />
+            <Image3 class={["aspect-video min-w-full object-cover"]} />
+          </div>
+        </div>
+      </article>
+      <div class="absolute bottom-8 z-10 flex items-center justify-center gap-4">
+        <div
+          onClick$={() => handleClick(0)}
+          class={[
+            "h-3 w-3 rounded-full",
+            {
+              "bg-primary-color": currentSlider.value === 0,
+              "bg-white": currentSlider.value !== 0,
+            },
+          ]}
+        ></div>
+        <div
+          onClick$={() => handleClick(100)}
+          class={[
+            "h-3 w-3 rounded-full",
+            {
+              "bg-primary-color": currentSlider.value === 100,
+              "bg-white": currentSlider.value !== 100,
+            },
+          ]}
+        ></div>
+        <div
+          onClick$={() => handleClick(200)}
+          class={[
+            "h-3 w-3 rounded-full",
+            {
+              "bg-primary-color": currentSlider.value === 200,
+              "bg-white": currentSlider.value !== 200,
+            },
+          ]}
+        ></div>
+      </div>
       <article class="absolute bottom-28 flex gap-2">
         <Link href="#" class="social-icon">
           <svg

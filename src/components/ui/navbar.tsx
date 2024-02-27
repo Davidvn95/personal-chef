@@ -1,12 +1,17 @@
-import { component$ } from "@builder.io/qwik";
+import { $, component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
 export const Navbar = component$(() => {
+  const stateMenuOpen = useSignal(false);
+  const handleClick = $(() => {
+    stateMenuOpen.value = false;
+  });
   return (
     <header class="fixed z-20 flex w-full items-center justify-between px-7 py-3 md:backdrop-blur">
       <svg
+        onClick$={() => (stateMenuOpen.value = !stateMenuOpen.value)}
         xmlns="http://www.w3.org/2000/svg"
-        class="absolute right-4 top-4 h-10 w-10 rounded-md bg-black md:hidden"
+        class="absolute right-4 top-4 z-30 h-10 w-10 cursor-pointer rounded-md bg-black md:hidden"
         width="24"
         height="24"
         viewBox="0 0 24 24"
@@ -21,13 +26,26 @@ export const Navbar = component$(() => {
         <path d="M4 12l16 0" />
         <path d="M4 18l16 0" />
       </svg>
-      <h1 class="absolute left-4 top-4 text-3xl font-bold md:hidden">Logo</h1>
-      <div class="hidden w-full justify-between md:flex">
-        <nav class="flex items-center justify-center gap-5 text-sm">
-          <Link href="#">Home</Link>
-          <Link href="#">Chef</Link>
-          <Link href="#">Restaurantes</Link>
-          <Link href="#" class="flex">
+      <h1 class="absolute left-4 top-4 z-30 text-3xl font-bold md:hidden">
+        Logo
+      </h1>
+      <div
+        class={[
+          "fixed bottom-0 left-0 right-0 top-0 flex w-full flex-col-reverse justify-center gap-10 bg-secundary-color bg-opacity-95 transition-all ease-in md:relative md:flex-row md:justify-between md:bg-transparent",
+          { "translate-x-full md:translate-x-0": !stateMenuOpen.value },
+        ]}
+      >
+        <nav class="flex flex-col items-center justify-center gap-5 text-sm md:flex-row">
+          <Link onClick$={() => handleClick()} href="#">
+            Home
+          </Link>
+          <Link onClick$={() => handleClick()} href="#info">
+            Chef
+          </Link>
+          <Link onClick$={() => handleClick()} href="#raiting">
+            Restaurantes
+          </Link>
+          <Link onClick$={() => handleClick()} href="#restaurants" class="flex">
             Busqueda
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -46,12 +64,12 @@ export const Navbar = component$(() => {
             </svg>
           </Link>
         </nav>
-        <h1 class="text-2xl font-bold">Logo</h1>
-        <article class="flex items-center justify-center gap-7">
+        <h1 class="hidden text-2xl font-bold md:flex">Logo</h1>
+        <article class="-mt-36 flex flex-col items-center justify-center gap-7 md:-mt-0 md:flex-row">
           <Link href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-search"
+              class=""
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -66,10 +84,18 @@ export const Navbar = component$(() => {
               <path d="M21 21l-6 -6" />
             </svg>
           </Link>
-          <Link href="#" class="btn btn-primary text-sm">
+          <Link
+            onClick$={() => handleClick()}
+            href="#"
+            class="btn btn-primary text-sm"
+          >
             Iniciar Sesión
           </Link>
-          <Link href="#" class="btn btn-primary text-sm">
+          <Link
+            onClick$={() => handleClick()}
+            href="#"
+            class="btn btn-primary text-sm"
+          >
             Crear Cuenta
           </Link>
         </article>
