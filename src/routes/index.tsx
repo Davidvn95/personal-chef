@@ -5,6 +5,7 @@ import { Hero } from "~/components/sections/hero";
 import { Info } from "~/components/sections/info";
 import { TopRatings } from "~/components/sections/top-ratings";
 import { Restaurants } from "~/components/sections/restaurants";
+import { Footer } from "~/components/sections/footer";
 
 export default component$(() => {
   return (
@@ -14,6 +15,7 @@ export default component$(() => {
       <Info />
       <TopRatings />
       <Restaurants />
+      <Footer />
     </>
   );
 });

@@ -10,7 +10,7 @@ import { ChefCard } from "../shareds/chef-card";
 
 export const TopRatings = component$(() => {
   return (
-    <section class="section-data gap-10 py-5">
+    <section id="raiting" class="section-data gap-10 py-5">
       <article class="flex">
         <FoodCard nameChef="alguien" title="comida rica" raiting={4}>
           <Food1

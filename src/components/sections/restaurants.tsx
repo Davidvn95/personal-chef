@@ -8,7 +8,10 @@ import { RestaurantCard } from "../shareds/restaurant-card";
 
 export const Restaurants = component$(() => {
   return (
-    <section class="section-data restaurant relative flex min-h-fit flex-col items-center gap-9 py-5">
+    <section
+      id="restaurants"
+      class="section-data restaurant relative flex min-h-fit flex-col items-center gap-9 py-5"
+    >
       <h2 class="text-2xl font-bold">Restaurantes</h2>
       <div class="flex w-11/12 snap-x snap-mandatory gap-10 overflow-x-scroll scroll-auto">
         <RestaurantCard

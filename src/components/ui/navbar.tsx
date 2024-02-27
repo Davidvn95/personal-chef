@@ -3,7 +3,7 @@ import { Link } from "@builder.io/qwik-city";
 
 export const Navbar = component$(() => {
   return (
-    <header class="fixed z-10 flex w-full items-center justify-between bg-black bg-opacity-20 px-7 py-3">
+    <header class="fixed z-20 flex w-full items-center justify-between bg-black bg-opacity-20 px-7 py-3 backdrop-blur">
       <nav class="flex items-center justify-center gap-5 text-sm">
         <Link href="#">Home</Link>
         <Link href="#">Chef</Link>

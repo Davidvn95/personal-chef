@@ -3,7 +3,10 @@ import { Link } from "@builder.io/qwik-city";
 
 export const Hero = component$(() => {
   return (
-    <section class="hero section-data relative flex min-h-screen flex-col items-center">
+    <section
+      id="hero"
+      class="hero section-data relative flex min-h-screen flex-col items-center"
+    >
       <article class="absolute bottom-28 flex gap-2">
         <Link href="#" class="social-icon">
           <svg

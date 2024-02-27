@@ -20,7 +20,7 @@ body {
 }
 
 .section-data {
-  @apply flex w-full flex-col justify-around;
+  @apply flex w-full flex-col items-center justify-around;
 }
 
 .hero::before {

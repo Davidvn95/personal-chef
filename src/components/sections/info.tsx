@@ -11,8 +11,8 @@ import { ChefCard } from "../shareds/chef-card";
 
 export const Info = component$(() => {
   return (
-    <section class="section-data gap-10 py-10">
-      <article class="flex gap-3">
+    <section id="info" class="section-data gap-10 py-10">
+      <article class="flex w-full gap-3">
         <div class="flex w-2/3 flex-col items-center justify-center gap-4 bg-secundary-color p-10">
           <div class="flex gap-3">
             <button class="btn btn-primary">Chef</button>
