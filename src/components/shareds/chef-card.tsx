@@ -1,5 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import IconChef from "~/assets/icons/icon-chef.svg";
+import IconChef from "~/assets/icons/icon-chef.svg?jsx";
 
 interface Props {
   nameChef?: string;
@@ -21,8 +21,8 @@ export const ChefCard = component$(({ nameChef, position }: Props) => {
               class={[
                 "aspect-square",
                 {
-                  "w-16 md:w-[108px] ": position > 1,
-                  "w-20 md:w-[128px] ": position === 1,
+                  "w-12 sm:w-16 md:w-[108px] ": position > 1,
+                  "w-14 sm:w-20 md:w-[128px] ": position === 1,
                 },
               ]}
             />
@@ -30,7 +30,7 @@ export const ChefCard = component$(({ nameChef, position }: Props) => {
               class={[
                 "absolute z-10 font-bold",
                 {
-                  "text-4xl md:text-6xl": position === 1,
+                  "text-3xl md:text-6xl": position === 1,
                   "text-2xl md:text-[40px]": position > 1,
                 },
               ]}

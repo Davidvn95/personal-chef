@@ -7,7 +7,7 @@ export const Navbar = component$(() => {
     stateMenuOpen.value = false;
   });
   return (
-    <header class="fixed top-0 z-20 flex h-14 w-full max-w-screen-2xl items-center justify-between px-7 py-3 backdrop-blur-sm">
+    <header class="fixed top-0 z-20 flex h-14 w-full max-w-screen-2xl items-center justify-between px-7 py-3 backdrop-blur-sm md:min-h-fit">
       <svg
         onClick$={() => (stateMenuOpen.value = !stateMenuOpen.value)}
         xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ export const Navbar = component$(() => {
       </h1>
       <div
         class={[
-          "fixed bottom-0 left-0 right-0 top-0 flex w-full flex-col-reverse justify-center gap-10 bg-secundary-color bg-opacity-95 transition-all ease-in md:relative md:flex-row md:justify-between md:bg-transparent",
+          "fixed bottom-0 left-0 right-0 top-0 flex min-h-screen w-full flex-col-reverse justify-center gap-10 bg-secundary-color bg-opacity-95 transition-all ease-in md:relative md:min-h-fit md:flex-row md:justify-between md:bg-transparent",
           { "translate-x-full md:translate-x-0": !stateMenuOpen.value },
         ]}
       >

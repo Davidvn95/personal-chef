@@ -38,7 +38,7 @@ export const TopRatings = component$(() => {
       </article>
       <article class="flex flex-col items-center gap-5">
         <h2 class="text-2xl font-bold">Top 3 Chefs estelares</h2>
-        <div class="flex items-center justify-center gap-11">
+        <div class="flex items-center justify-center gap-4 sm:gap-7 md:gap-11">
           <ChefCard position={2}>
             <Chef1 class="aspect-[9/13] w-[288px] object-cover" />
           </ChefCard>

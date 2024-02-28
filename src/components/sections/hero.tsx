@@ -9,15 +9,12 @@ export const Hero = component$(() => {
   const currentSlider = useSignal<number>(0);
 
   const handleClick = $((newValue?: number) => {
-    const carousel = document.getElementById("carousel")!;
     if (newValue !== undefined) {
       currentSlider.value = newValue;
-      carousel.style.transform = `translateX(-${currentSlider.value}%)`;
       return;
     }
     if (currentSlider.value < maxSliders) currentSlider.value += 100;
     if (currentSlider.value === maxSliders) currentSlider.value = 0;
-    carousel.style.transform = `translateX(-${currentSlider.value}%)`;
   });
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
@@ -34,7 +31,11 @@ export const Hero = component$(() => {
     >
       <article>
         <div class="absolute left-0 top-0 flex h-screen w-full overflow-hidden brightness-50">
-          <div id="carousel" class={`flex transition-all duration-700`}>
+          <div
+            id="carousel"
+            class={`flex transition-all duration-700`}
+            style={{ transform: `translateX(-${currentSlider.value}%)` }}
+          >
             <Image3 class={["aspect-video w-full min-w-full object-cover"]} />
             <Image1 class={["aspect-video w-full min-w-full object-cover"]} />
             <Image2 class={["aspect-video w-full min-w-full object-cover"]} />

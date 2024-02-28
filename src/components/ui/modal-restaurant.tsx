@@ -12,7 +12,7 @@ interface Props {
 
 export const ModalRestaurant = component$(({ areAll }: Props) => {
   return (
-    <article class="w-80% fixed bottom-0 left-0 right-0 top-0 z-30 grid max-h-screen grid-cols-1 place-items-center gap-3 overflow-auto bg-black bg-opacity-95 py-5 md:grid-cols-3 md:py-10">
+    <article class="w-80% fixed bottom-0 left-0 right-0 top-0 z-30 grid max-h-screen place-items-center gap-3 overflow-auto bg-black bg-opacity-95 py-5 md:grid-cols-3 md:py-10">
       <RestaurantCard
         title="Restaurante"
         speciality="Pastas"

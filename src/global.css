@@ -39,7 +39,7 @@ body {
 }
 
 .chef-image {
-  @apply aspect-[9/13] w-[164px] object-cover;
+  @apply aspect-[9/13] w-full object-cover md:w-[164px];
 }
 
 .chef-image-miniature {

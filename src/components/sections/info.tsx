@@ -1,10 +1,10 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import ImgDibujosChef from "~/assets/dibujos-chef.svg?jsx";
 import { SliderChef } from "../ui/slider-chef";
+import { ModalChefs } from "../ui/modal-chefs";
 
 export const Info = component$(() => {
-  // const pxPerImage = 204
-  const translateState = useSignal(0);
+  const areAll = useSignal(false);
   return (
     <section id="info" class="section-data gap-10 py-10">
       <article class="flex w-full flex-col gap-3 md:flex-row">
@@ -26,9 +26,11 @@ export const Info = component$(() => {
       <article class="flex flex-col items-center justify-center gap-5">
         <h2 class="text-2xl font-bold">Chefs</h2>
         <SliderChef />
-        {translateState}
-        <button class="btn btn-primary">Ver todos</button>
+        <button class="btn btn-primary" onClick$={() => (areAll.value = true)}>
+          Ver todos
+        </button>
       </article>
+      {areAll.value && <ModalChefs areAll={areAll} />}
     </section>
   );
 });
