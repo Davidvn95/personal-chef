@@ -11,16 +11,16 @@ export default {
         "primary-color": "#dfa040",
         "secundary-color": "#1e1e1e",
       },
-      animation: {
-        "slide-out-left": "slide-out-left 0.6s ease-out",
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": {
+            transform: "translateX(-50%)",
+          },
+        },
       },
-      "slide-out-left": {
-        "0%": {
-          transform: "translateX(0)",
-        },
-        "100%": {
-          transform: "translateX(-20px)",
-        },
+      animation: {
+        slide: "scroll 30s linear infinite",
       },
     },
   },

@@ -7,7 +7,7 @@ export const Navbar = component$(() => {
     stateMenuOpen.value = false;
   });
   return (
-    <header class="fixed z-20 flex w-full items-center justify-between px-7 py-3 md:backdrop-blur">
+    <header class="fixed top-0 z-20 flex h-14 w-full max-w-screen-2xl items-center justify-between px-7 py-3 backdrop-blur-sm">
       <svg
         onClick$={() => (stateMenuOpen.value = !stateMenuOpen.value)}
         xmlns="http://www.w3.org/2000/svg"

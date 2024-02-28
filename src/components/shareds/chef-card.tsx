@@ -1,5 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import IconChef from "~/assets/icon-chef.svg?jsx";
+import IconChef from "~/assets/icons/icon-chef.svg";
 
 interface Props {
   nameChef?: string;

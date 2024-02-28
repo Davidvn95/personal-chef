@@ -6,13 +6,15 @@ import Chef4 from "~/assets/chefs/chef-4.jpg?jsx";
 import Chef5 from "~/assets/chefs/chef-5.jpg?jsx";
 import Chef6 from "~/assets/chefs/chef-6.jpg?jsx";
 import Chef7 from "~/assets/chefs/chef-7.jpg?jsx";
+import IconLeft from "~/assets/icons/left-icon.svg?jsx";
+import IconRight from "~/assets/icons/right-icon.svg?jsx";
 import { ChefCard } from "../shareds/chef-card";
 
 export const SliderChef = component$(() => {
   return (
     <>
-      <article class="flex w-full overflow-hidden">
-        <div class="flex max-w-[600px] -translate-x-[612px] gap-10 px-4 transition-all duration-500  ease-in">
+      <article class="relative flex h-full w-full items-center overflow-hidden px-2">
+        <div class="flex max-w-[600px] gap-10 px-4 transition-all duration-500  ease-in">
           <ChefCard nameChef="David">
             <Chef1 class="chef-image" />
           </ChefCard>
@@ -35,6 +37,8 @@ export const SliderChef = component$(() => {
             <Chef7 class="chef-image" />
           </ChefCard>
         </div>
+        <IconLeft class="absolute left-0 top-[50%]" />
+        <IconRight class="absolute bottom-0 top-0" />
       </article>
     </>
   );

@@ -13,7 +13,6 @@
 body {
   overflow-x: hidden;
   margin: auto;
-  max-width: 1580px;
   width: 100%;
   background: #0e0e0e;
   background-image: url("/bg.svg");
@@ -24,7 +23,7 @@ body {
 }
 
 .section-data {
-  @apply flex w-full max-w-full flex-col items-center justify-around;
+  @apply flex w-full max-w-full flex-col items-center justify-around px-2;
 }
 
 .btn {

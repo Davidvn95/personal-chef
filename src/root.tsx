@@ -23,7 +23,10 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
       </head>
-      <body lang="en">
+      <body
+        lang="en"
+        class="max-w-screen-2xl overflow-y-auto scroll-smooth transition-all"
+      >
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
