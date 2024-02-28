@@ -6,22 +6,24 @@ import Image3 from "~/assets/sliders-hero/image3.png?jsx";
 
 export const Hero = component$(() => {
   const maxSliders = 300;
-  const currentSlider = useSignal(0);
+  const currentSlider = useSignal<number>(0);
 
   const handleClick = $((newValue?: number) => {
-    if (newValue) {
+    const carousel = document.getElementById("carousel")!;
+    if (newValue !== undefined) {
       currentSlider.value = newValue;
+      carousel.style.transform = `translateX(-${currentSlider.value}%)`;
       return;
     }
     if (currentSlider.value < maxSliders) currentSlider.value += 100;
     if (currentSlider.value === maxSliders) currentSlider.value = 0;
+    carousel.style.transform = `translateX(-${currentSlider.value}%)`;
   });
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
     const interval = setInterval(() => {
       handleClick();
-      console.log("hecho");
-    }, 5000);
+    }, 4000);
     cleanup(() => clearInterval(interval));
   });
 
@@ -31,13 +33,11 @@ export const Hero = component$(() => {
       class="hero section-data relative flex min-h-screen flex-col items-center"
     >
       <article>
-        <div class="absolute left-0 top-0 flex h-screen w-full snap-x snap-mandatory overflow-hidden brightness-50">
-          <div
-            class={`flex -translate-x-[${currentSlider.value}%] transition-all duration-700`}
-          >
-            <Image1 class={["aspect-video min-w-full object-cover"]} />
-            <Image2 class={["aspect-video min-w-full object-cover"]} />
-            <Image3 class={["aspect-video min-w-full object-cover"]} />
+        <div class="absolute left-0 top-0 flex h-screen w-full overflow-hidden brightness-50">
+          <div id="carousel" class={`flex transition-all duration-700`}>
+            <Image3 class={["aspect-video w-full min-w-full object-cover"]} />
+            <Image1 class={["aspect-video w-full min-w-full object-cover"]} />
+            <Image2 class={["aspect-video w-full min-w-full object-cover"]} />
           </div>
         </div>
       </article>

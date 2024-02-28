@@ -11,6 +11,7 @@
 }
 
 body {
+  overflow-x: hidden;
   margin: auto;
   max-width: 1580px;
   width: 100%;
@@ -25,11 +26,6 @@ body {
 .section-data {
   @apply flex w-full max-w-full flex-col items-center justify-around;
 }
-
-/* .hero::before {
-  @apply absolute left-0 top-0 h-screen w-full bg-hero-section bg-cover bg-center brightness-[.5];
-  content: "";
-} */
 
 .btn {
   @apply cursor-pointer rounded px-4 py-1 font-bold;
@@ -52,6 +48,6 @@ body {
 }
 
 .restaurant::before {
-  @apply bg-restaurant-section absolute left-0 top-0 -z-10 h-full max-h-screen w-full bg-cover bg-center brightness-[.2] backdrop-blur-xl;
+  @apply absolute left-0 top-0 -z-10 h-full max-h-screen w-full bg-restaurant-section bg-cover bg-center brightness-[.2] backdrop-blur-xl;
   content: "";
 }
