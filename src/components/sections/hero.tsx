@@ -3,6 +3,9 @@ import { Link } from "@builder.io/qwik-city";
 import Image1 from "~/assets/sliders-hero/image1.jpg?jsx";
 import Image2 from "~/assets/sliders-hero/image2.avif?jsx";
 import Image3 from "~/assets/sliders-hero/image3.png?jsx";
+import Image03 from "~/assets/sliders-hero/image3.png";
+import Image02 from "~/assets/sliders-hero/image2.avif";
+import Image01 from "~/assets/sliders-hero/image1.jpg";
 
 export const Hero = component$(() => {
   const maxSliders = 300;
@@ -25,21 +28,34 @@ export const Hero = component$(() => {
   });
 
   return (
-    <section
-      id="hero"
-      class="hero section-data relative flex min-h-screen flex-col items-center"
-    >
-      <article>
-        <div class="absolute left-0 top-0 flex h-screen w-full overflow-hidden brightness-50">
-          <div
-            id="carousel"
-            class={`flex transition-all duration-700`}
-            style={{ transform: `translateX(-${currentSlider.value}%)` }}
-          >
-            <Image3 class={["aspect-video w-full min-w-full object-cover"]} />
-            <Image1 class={["aspect-video w-full min-w-full object-cover"]} />
-            <Image2 class={["aspect-video w-full min-w-full object-cover"]} />
-          </div>
+    <section class="hero section-data relative flex min-h-screen flex-col items-center">
+      <article class="absolute left-0 top-0 flex h-screen w-full overflow-hidden brightness-50">
+        <div
+          id="carousel"
+          class="flex transition-all duration-700"
+          style={{ transform: `translateX(-${currentSlider.value}%)` }}
+        >
+          {/* <img
+            src={Image03}
+            class="aspect-video w-full min-w-full object-cover"
+            alt=""
+          />
+          <img
+            src={Image01}
+            class="aspect-video w-full min-w-full object-cover"
+            alt=""
+          />
+          <img
+            src={Image02}
+            class="aspect-video w-full min-w-full object-cover"
+            alt=""
+          /> */}
+          <Image3
+            loading="eager"
+            class="aspect-video w-full min-w-full object-cover"
+          />
+          <Image1 class="aspect-video w-full min-w-full object-cover" />
+          <Image2 class="aspect-video w-full min-w-full object-cover" />
         </div>
       </article>
       <div class="absolute bottom-8 z-10 flex items-center justify-center gap-4">
